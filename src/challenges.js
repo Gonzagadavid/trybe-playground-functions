@@ -1,19 +1,19 @@
 // Desafio 1
-function compareTrue (booleanA, booleanB) {
+function compareTrue(booleanA, booleanB) {
   return booleanA && booleanB;
 }
 
 // Desafio 2
-function calcArea (base, height) {
+function calcArea(base, height) {
   return (base * height) / 2;
 }
 
 // Desafio 3
-function splitSentence (string) {
+function splitSentence(string) {
   const array = [];
   let word = '';
 
-  for (let i = 0; i < string.length; i++) {
+  for (let i = 0; i < string.length; i += 1) {
     if (string[i] !== ' ') {
       word += string[i];
     } else {
@@ -26,33 +26,33 @@ function splitSentence (string) {
 }
 
 // Desafio 4
-function concatName (array) {
+function concatName(array) {
   return `${array[array.length - 1]}, ${array[0]}`;
 }
 
 // Desafio 5
-function footballPoints (wins, ties) {
+function footballPoints(wins, ties) {
   return (wins * 3) + ties;
 }
 
 // Desafio 6
-function highestCount (array) {
+function highestCount(array) {
   let big = array[0];
   let count = 0;
 
-  for (let i = 1; i < array.length; i++) {
+  for (let i = 1; i < array.length; i += 1) {
     if (array[i] > big) big = array[i];
   }
 
   for (const number of array) {
-    if (number === big) count++;
+    if (number === big) count+= 1;
   }
 
   return count;
 }
 
 // Desafio 7
-function catAndMouse (mouse, cat1, cat2) {
+function catAndMouse(mouse, cat1, cat2) {
   if (cat1 === mouse && cat2 === mouse) {
     return 'os gatos trombam e o rato foge';
   } else if ((cat1 - mouse) < (cat2 - mouse)) {
@@ -63,10 +63,10 @@ function catAndMouse (mouse, cat1, cat2) {
 }
 
 // Desafio 8
-function fizzBuzz (array) {
+function fizzBuzz(array) {
   const arrayCopy = [...array];
 
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i += 1) {
     if (arrayCopy[i] % 3 === 0 && arrayCopy[i] % 5 === 0) {
       arrayCopy[i] = 'fizzBuzz';
     } else if (arrayCopy[i] % 3 === 0) {
@@ -85,10 +85,10 @@ function fizzBuzz (array) {
 const codes = { a: '1', e: '2', i: '3', o: '4', u: '5' };
 const vowels = 'aeiou';
 
-function encode (string) {
+function encode(string) {
   let stringCode = '';
 
-  for (let i = 0; i < string.length; i++) {
+  for (let i = 0; i < string.length; i += 1) {
     if (vowels.includes(string[i])) {
       stringCode += codes[string[i]];
     } else {
@@ -99,12 +99,12 @@ function encode (string) {
   return stringCode;
 }
 
-function decode (stringCode) {
+function decode(stringCode) {
   let string = '';
 
-  for (let i = 0; i < stringCode.length; i++) {
+  for (let i = 0; i < stringCode.length; i += 1) {
     const number = Number(stringCode[i]);
-    if (!isNaN(number) && number > 0) {
+    if (!Number.isNaN(number) && number > 0) {
       string += vowels[number - 1];
     } else {
       string += stringCode[i];

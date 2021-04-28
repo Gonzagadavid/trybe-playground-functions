@@ -2,7 +2,7 @@
 const fn = require('./challenges');
 
 // Desafio 10
-function techList (technologies, name) {
+function techList(technologies, name) {
   if (technologies.length === 0) return 'Vazio!';
   const technologiesOrder = sort(technologies);
   const list = [];
@@ -19,7 +19,7 @@ function techList (technologies, name) {
 }
 
 // Desafio 11
-function generatePhoneNumber (array) {
+function generatePhoneNumber(array) {
   if (array.length !== 11) return 'Array com tamanho incorreto.';
   if (numberRepeat(array)) {
     return 'não é possível gerar um número de telefone com esses valores';
@@ -28,7 +28,7 @@ function generatePhoneNumber (array) {
   let start = '';
   let end = '';
 
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i += 1) {
     if (array[i] > 9 || array[i] < 0) {
       return 'não é possível gerar um número de telefone com esses valores';
     }
@@ -45,7 +45,7 @@ function generatePhoneNumber (array) {
   return `(${prefix}) ${start}-${end}`;
 }
 
-function triangleCheck (lineA, lineB, lineC) {
+function triangleCheck(lineA, lineB, lineC) {
   if (compare(lineA, lineB, lineC)) return false;
   if (compare(lineB, lineC, lineA)) return false;
   if (compare(lineC, lineA, lineB)) return false;
@@ -58,13 +58,13 @@ function triangleCheck (lineA, lineB, lineC) {
 }
 
 // Desafio 13
-function hydrate (string) {
+function hydrate(string) {
   const array = fn.splitSentence(string);
   let sum = 0;
 
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i += 1) {
     const number = parseInt(array[i]);
-    if (!isNaN(number)) sum += number;
+    if (!Number.isNaN(number)) sum += number;
   }
 
   return sum;
@@ -78,8 +78,8 @@ function hydrate (string) {
 function sort (array) {
   const arrayCopy = [...array];
   let memory = '';
-  for (let j = 0; j < arrayCopy.length - 1; j++) {
-    for (let i = 0; i < arrayCopy.length - 1; i++) {
+  for (let j = 0; j < arrayCopy.length - 1; j += 1) {
+    for (let i = 0; i < arrayCopy.length - 1; i += 1) {
       if (arrayCopy[i].charCodeAt() > arrayCopy[i + 1].charCodeAt()) {
         memory = arrayCopy[i];
         arrayCopy[i] = arrayCopy[i + 1];
@@ -102,17 +102,17 @@ function sort (array) {
 function numberRepeat (array) {
   const arrayInedito = [];
 
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i += 1) {
     let cont = 0;
-    for (let j = 0; j < arrayInedito.length; j++) {
+    for (let j = 0; j < arrayInedito.length; j += 1) {
       if (array[i] === arrayInedito[j]) cont++;
     }
     if (cont === 0) arrayInedito.push(array[i]);
   }
 
-  for (let i = 0; i < arrayInedito.length; i++) {
+  for (let i = 0; i < arrayInedito.length; i += 1) {
     let cont = 0;
-    for (let j = 0; j < array.length; j++) {
+    for (let j = 0; j < array.length; j += 1) {
       if (arrayInedito[i] === array[j]) cont++;
     }
     if (cont >= 3) return true;
