@@ -63,16 +63,55 @@ function catAndMouse (mouse, cat1, cat2) {
 }
 
 // Desafio 8
-function fizzBuzz () {
-  // seu código aqui
+function fizzBuzz (array) {
+  const arrayCopy = [...array];
+
+  for (let i = 0; i < array.length; i++) {
+    if (arrayCopy[i] % 3 === 0 && arrayCopy[i] % 5 === 0) {
+      arrayCopy[i] = 'fizzBuzz';
+    } else if (arrayCopy[i] % 3 === 0) {
+      arrayCopy[i] = 'fizz';
+    } else if (arrayCopy[i] % 5 === 0) {
+      arrayCopy[i] = 'buzz';
+    } else {
+      arrayCopy[i] = 'bug!';
+    }
+  }
+
+  return arrayCopy;
 }
 
 // Desafio 9
-function encode () {
-  // seu código aqui
+const codes = { a: '1', e: '2', i: '3', o: '4', u: '5' };
+const vowels = 'aeiou';
+
+function encode (string) {
+  let stringCode = '';
+
+  for (let i = 0; i < string.length; i++) {
+    if (vowels.includes(string[i])) {
+      stringCode += codes[string[i]];
+    } else {
+      stringCode += string[i];
+    }
+  }
+
+  return stringCode;
 }
-function decode () {
-  // seu código aqui
+
+function decode (stringCode) {
+  let string = '';
+
+  for (let i = 0; i < stringCode.length; i++) {
+    const number = Number(stringCode[i]);
+    if (!isNaN(number) && number > 0) {
+      string += vowels[number - 1];
+    } else {
+      string += stringCode[i];
+    }
+  }
+
+  return string;
 }
 
 module.exports = {
