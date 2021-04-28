@@ -25,13 +25,9 @@ function splitSentence (string) {
   return array;
 }
 
-console.log(splitSentence('go Trybe'));
-console.log(splitSentence('vamo que vamo'));
-console.log(splitSentence('foguete'));
-
 // Desafio 4
-function concatName () {
-  // seu código aqui
+function concatName (array) {
+  return `${array[array.length - 1]}, ${array[0]}`;
 }
 
 // Desafio 5
