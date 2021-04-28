@@ -8,14 +8,26 @@ function calcArea (base, height) {
   return (base * height) / 2;
 }
 
-console.log(calcArea(10, 50)); // 250
-console.log(calcArea(5, 2)); // 5
-console.log(calcArea(51, 1)); // 25.5
-
 // Desafio 3
-function splitSentence () {
-  // seu código aqui
+function splitSentence (string) {
+  const array = [];
+  let word = '';
+
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] !== ' ') {
+      word += string[i];
+    } else {
+      array.push(word);
+      word = '';
+    }
+  }
+  array.push(word);
+  return array;
 }
+
+console.log(splitSentence('go Trybe'));
+console.log(splitSentence('vamo que vamo'));
+console.log(splitSentence('foguete'));
 
 // Desafio 4
 function concatName () {
