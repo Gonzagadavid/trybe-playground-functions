@@ -162,7 +162,7 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 
 ---
 
-### 👀 Observação importante:
+### 👀 Observações importantes:
 
 * Para verificar se a sua função foi criada corretamente você pode instalar a extensão `code runner` no _VSCode_.
 * Utilize `console.log()` para testar as funções localmente, mas pode remover antes de fazer o push 😉.
