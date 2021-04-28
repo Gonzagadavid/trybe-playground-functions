@@ -1,3 +1,6 @@
+// impotada funções feitas em challenges para reutilizar a função splitSentence na função hydrate
+const fn = require('./challenges');
+
 // Desafio 10
 function techList (technologies, name) {
   if (technologies.length === 0) return 'Vazio!';
@@ -42,18 +45,36 @@ function generatePhoneNumber (array) {
   return `(${prefix}) ${start}-${end}`;
 }
 
-console.log(generatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2]));
-// Desafio 12
-function triangleCheck () {
-  // seu código aqui
+function triangleCheck (lineA, lineB, lineC) {
+  if (compare(lineA, lineB, lineC)) return false;
+  if (compare(lineB, lineC, lineA)) return false;
+  if (compare(lineC, lineA, lineB)) return false;
+
+  if (checkAbs(lineA, lineB, lineC)) return false;
+  if (checkAbs(lineB, lineC, lineA)) return false;
+  if (checkAbs(lineC, lineA, lineB)) return false;
+
+  return true;
 }
 
 // Desafio 13
-function hydrate () {
-  // seu código aqui
+function hydrate (string) {
+  const array = fn.splitSentence(string);
+  let sum = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    const number = parseInt(array[i]);
+    if (!isNaN(number)) sum += number;
+  }
+
+  return sum;
 }
 
-// funções auxiliares
+// funções auxiliares-------------------------------------------------------------------------------
+
+// clona o array de strings passado por parâmetro e o retorna ordenado de acordo com o unicode obtido
+// através do método String.charCodeAt(), caso duas string comecem pela mesma letra, é ordenado pela
+// segunda letra.
 function sort (array) {
   const arrayCopy = [...array];
   let memory = '';
@@ -76,6 +97,8 @@ function sort (array) {
   return arrayCopy;
 }
 
+// retorna o valor booleano true caso o array passado por parâmetro possua um numero repetido 3 ou mais
+// vezes e false caso não.
 function numberRepeat (array) {
   const arrayInedito = [];
 
@@ -96,6 +119,20 @@ function numberRepeat (array) {
   }
 
   return false;
+}
+
+// verifica se compared é maior que a soma de valueA com valueB, caso seja retona true,
+// caso não retorna false
+function compare (compared, valueA, valueB) {
+  const sum = valueA + valueB;
+  return compared > sum;
+}
+
+// verifica se o compared é menor do que o valor absoluto da diferença entre valueA e ValueB e retorna
+// true se sim e false se não
+function checkAbs (compared, valueA, valueB) {
+  const diference = valueA - valueB;
+  return compared < Math.abs(diference);
 }
 
 module.exports = {
