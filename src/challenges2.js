@@ -67,7 +67,7 @@ function hydrate(string) {
     if (!Number.isNaN(number)) sum += number;
   }
 
-  return sum;
+  return `${sum} copos de água`;
 }
 
 // funções auxiliares-------------------------------------------------------------------------------
