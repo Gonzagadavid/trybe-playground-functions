@@ -15,8 +15,8 @@ function sort(array) {
         memory = arrayCopy[i];
         arrayCopy[i] = arrayCopy[i + 1];
         arrayCopy[i + 1] = memory;
-      } else if (arrayCopy[i].charCodeAt() === arrayCopy[i + 1].charCodeAt() &&
-          arrayCopy[i].slice(1).charCodeAt() > arrayCopy[i + 1].slice(1).charCodeAt()) {
+      } else if (arrayCopy[i].charCodeAt() === arrayCopy[i + 1].charCodeAt() 
+        && arrayCopy[i].slice(1).charCodeAt() > arrayCopy[i + 1].slice(1).charCodeAt()) {
           memory = arrayCopy[i];
           arrayCopy[i] = arrayCopy[i + 1];
           arrayCopy[i + 1] = memory;

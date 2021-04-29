@@ -36,16 +36,24 @@ function footballPoints(wins, ties) {
 }
 
 // Desafio 6
-function highestCount(array) {
-  let big = array[0];
-  let count = 0;
+
+// retorna o maior numero encontrado no array passado por paramentro
+function findMax(array) {
+  let max = array[0];
 
   for (let i = 1; i < array.length; i += 1) {
-    if (array[i] > big) big = array[i];
+    if (array[i] > max) max = array[i];
   }
 
+  return max
+}
+
+function highestCount(array) {
+  let count = 0;
+  const max = findMax(array)
+  
   for (const number of array) {
-    if (number === big) count += 1;
+    if (number === max) count += 1;
   }
 
   return count;
