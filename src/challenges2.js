@@ -2,11 +2,36 @@
 const fn = require('./challenges');
 
 // Desafio 10
+
+// clona o array de strings passado por parâmetro e o retorna ordenado de acordo com o unicode obtido
+// através do método String.charCodeAt(), caso duas string comecem pela mesma letra, é ordenado pela
+// segunda letra.
+function sort (array) {
+  const arrayCopy = [...array];
+  let memory = '';
+  for (let j = 0; j < arrayCopy.length - 1; j += 1) {
+    for (let i = 0; i < arrayCopy.length - 1; i += 1) {
+      if (arrayCopy[i].charCodeAt() > arrayCopy[i + 1].charCodeAt()) {
+        memory = arrayCopy[i];
+        arrayCopy[i] = arrayCopy[i + 1];
+        arrayCopy[i + 1] = memory;
+      } else if (arrayCopy[i].charCodeAt() === arrayCopy[i + 1].charCodeAt()) {
+        if (arrayCopy[i].slice(1).charCodeAt() > arrayCopy[i + 1].slice(1).charCodeAt()) {
+          memory = arrayCopy[i];
+          arrayCopy[i] = arrayCopy[i + 1];
+          arrayCopy[i + 1] = memory;
+        }
+      }
+    }
+  }
+  return arrayCopy;
+}
+
 function techList(technologies, name) {
   if (technologies.length === 0) return 'Vazio!';
   const technologiesOrder = sort(technologies);
   const list = [];
-  for (const index in technologiesOrder) {
+  for (let index = 0; index < technologiesOrder.length; index += 1) {
     list.push(
       {
         tech: technologiesOrder[index],
@@ -72,30 +97,6 @@ function hydrate(string) {
 
 // funções auxiliares-------------------------------------------------------------------------------
 
-// clona o array de strings passado por parâmetro e o retorna ordenado de acordo com o unicode obtido
-// através do método String.charCodeAt(), caso duas string comecem pela mesma letra, é ordenado pela
-// segunda letra.
-function sort (array) {
-  const arrayCopy = [...array];
-  let memory = '';
-  for (let j = 0; j < arrayCopy.length - 1; j += 1) {
-    for (let i = 0; i < arrayCopy.length - 1; i += 1) {
-      if (arrayCopy[i].charCodeAt() > arrayCopy[i + 1].charCodeAt()) {
-        memory = arrayCopy[i];
-        arrayCopy[i] = arrayCopy[i + 1];
-        arrayCopy[i + 1] = memory;
-      } else if (arrayCopy[i].charCodeAt() === arrayCopy[i + 1].charCodeAt()) {
-        if (arrayCopy[i].slice(1).charCodeAt() > arrayCopy[i + 1].slice(1).charCodeAt()) {
-          memory = arrayCopy[i];
-          arrayCopy[i] = arrayCopy[i + 1];
-          arrayCopy[i + 1] = memory;
-        }
-      }
-    }
-  }
-
-  return arrayCopy;
-}
 
 // retorna o valor booleano true caso o array passado por parâmetro possua um numero repetido 3 ou mais
 // vezes e false caso não.

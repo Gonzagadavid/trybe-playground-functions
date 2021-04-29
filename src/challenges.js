@@ -53,8 +53,8 @@ function highestCount(array) {
 
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
-  const distanceCat1 = Math.abs(cat1 - mouse)
-  const distanceCat2 = Math.abs(cat2 - mouse)
+  const distanceCat1 = Math.abs(cat1 - mouse);
+  const distanceCat2 = Math.abs(cat2 - mouse);
 
   if (distanceCat1 === distanceCat2) return 'os gatos trombam e o rato foge';
   if (distanceCat1 < distanceCat2) return 'cat1';
@@ -124,5 +124,5 @@ module.exports = {
   fizzBuzz,
   footballPoints,
   highestCount,
-  splitSentence
+  splitSentence,
 };
