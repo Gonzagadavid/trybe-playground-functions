@@ -45,13 +45,13 @@ function findMax(array) {
     if (array[i] > max) max = array[i];
   }
 
-  return max
+  return max;
 }
 
 function highestCount(array) {
   let count = 0;
-  const max = findMax(array)
-  
+  const max = findMax(array);
+
   for (const number of array) {
     if (number === max) count += 1;
   }
@@ -71,21 +71,24 @@ function catAndMouse(mouse, cat1, cat2) {
 }
 
 // Desafio 8
+
+// retorna um array com todos do tamanho do orinal, preechido com a string 'bug!'
+function arrayBug(array) {
+  return Array(array.length).fill('bug!');
+}
+
+function fizz(n) {
+  return n % 5 === 0 ? 'fizzBuzz' : 'fizz';
+}
+
 function fizzBuzz(array) {
-  const arrayCopy = [];
+  const arrayCopy = arrayBug(array);
 
   for (let i = 0; i < array.length; i += 1) {
-    if (array[i] % 3 === 0 && array[i] % 5 === 0) {
-      arrayCopy.push('fizzBuzz');
-    } else if (array % 3 === 0) {
-      arrayCopy.push('fizz');
-    } else if (array % 5 === 0) {
-      arrayCopy.push('buzz');
-    } else {
-      array.push('bug!');
-    }
+    if (array[i] % 3 === 0) {
+      arrayCopy[i] = fizz(array[i]);
+    } else if (array[i] % 5 === 0) arrayCopy[i] = 'buzz';
   }
-
   return arrayCopy;
 }
 
