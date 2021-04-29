@@ -45,7 +45,7 @@ function highestCount(array) {
   }
 
   for (const number of array) {
-    if (number === big) count+= 1;
+    if (number === big) count += 1;
   }
 
   return count;
@@ -53,28 +53,28 @@ function highestCount(array) {
 
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
-  if (Math.abs(cat1 - mouse) ===  Math.abs(cat2 - mouse)) {
-    return 'os gatos trombam e o rato foge';
-  } else if (Math.abs(cat1 - mouse) < Math.abs(cat2 - mouse)) {
-    return 'cat1';
-  } else {
-    return 'cat2';
-  }
+  const distanceCat1 = Math.abs(cat1 - mouse)
+  const distanceCat2 = Math.abs(cat2 - mouse)
+
+  if (distanceCat1 === distanceCat2) return 'os gatos trombam e o rato foge';
+  if (distanceCat1 < distanceCat2) return 'cat1';
+
+  return 'cat2';
 }
 
 // Desafio 8
 function fizzBuzz(array) {
-  const arrayCopy = [...array];
+  const arrayCopy = [];
 
   for (let i = 0; i < array.length; i += 1) {
-    if (arrayCopy[i] % 3 === 0 && arrayCopy[i] % 5 === 0) {
-      arrayCopy[i] = 'fizzBuzz';
-    } else if (arrayCopy[i] % 3 === 0) {
-      arrayCopy[i] = 'fizz';
-    } else if (arrayCopy[i] % 5 === 0) {
-      arrayCopy[i] = 'buzz';
+    if (array[i] % 3 === 0 && array[i] % 5 === 0) {
+      arrayCopy.push('fizzBuzz');
+    } else if (array % 3 === 0) {
+      arrayCopy.push('fizz');
+    } else if (array % 5 === 0) {
+      arrayCopy.push('buzz');
     } else {
-      arrayCopy[i] = 'bug!';
+      array.push('bug!');
     }
   }
 
