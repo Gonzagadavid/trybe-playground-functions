@@ -1,5 +1,5 @@
 // impotada funções feitas em challenges para reutilizar a função splitSentence na função hydrate
-// const fn = require('./challenges');
+const fn = require('./challenges');
 
 // Desafio 10
 function techList(technologies, name) {
@@ -59,7 +59,7 @@ function triangleCheck(lineA, lineB, lineC) {
 
 // Desafio 13
 function hydrate(string) {
-  const array = splitSentence(string);
+  const array = fn.splitSentence(string);
   let sum = 0;
 
   for (let i = 0; i < array.length; i += 1) {
@@ -67,7 +67,7 @@ function hydrate(string) {
     if (!Number.isNaN(number)) sum += number;
   }
 
-  return `${sum} copos de água`;
+  return sum === 1 ? `${sum} copo de água` : `${sum} copos de água`;
 }
 
 // funções auxiliares-------------------------------------------------------------------------------
@@ -133,23 +133,6 @@ function compare (compared, valueA, valueB) {
 function checkAbs (compared, valueA, valueB) {
   const diference = valueA - valueB;
   return compared < Math.abs(diference);
-}
-
-// reaproveitando o desafio 3 na função hydate
-function splitSentence(string) {
-  const array = [];
-  let word = '';
-
-  for (let i = 0; i < string.length; i += 1) {
-    if (string[i] !== ' ') {
-      word += string[i];
-    } else {
-      array.push(word);
-      word = '';
-    }
-  }
-  array.push(word);
-  return array;
 }
 
 module.exports = {
