@@ -1,7 +1,7 @@
 # Playground functions
 
 
-## Esse projeto foi submetido a testes de 13 requisitos, atingindo 100% dos que foi proposto:
+## Projeto de avaliação feito durante o curso da Trybe, buscando colocar em prática:
 
 - Escrever códigos em JavaScript que usam variáveis e tipos primitivos;
 - Utilizar conceitos da linguagem como a tipagem dinâmica e operadores lógicos/aritméticos/de atribuição no seu código;
@@ -14,6 +14,7 @@
 - Utilizar o comando for/in ;
 - Utilizar funções para organizar e estruturar o seu código;
 
+## Esse projeto foi submetido a testes de 13 requisitos, atingindo 100% dos que foi proposto:
 
 ### 1 - Crie uma função usando o operador &&
 
